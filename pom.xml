@@ -552,6 +552,10 @@
                   </excludePackageNames>
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
+                  <additionalOptions>
+                     <option>--add-modules</option>
+                     <option>org.slf4j</option>
+                  </additionalOptions>
                </configuration>
                <executions>
                   <execution>
