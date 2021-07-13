@@ -33,7 +33,7 @@
 
    <groupId>com.zaxxer</groupId>
    <artifactId>HikariCP</artifactId>
-   <version>4.0.4</version>
+   <version>4.0.4-SNAPSHOT</version>
    <packaging>bundle</packaging>
 
    <name>HikariCP</name>
@@ -49,7 +49,7 @@
       <connection>scm:git:git@github.com:brettwooldridge/HikariCP.git</connection>
       <developerConnection>scm:git:git@github.com:brettwooldridge/HikariCP.git</developerConnection>
       <url>git@github.com:brettwooldridge/HikariCP.git</url>
-      <tag>HikariCP-4.0.4</tag>
+      <tag>HEAD</tag>
    </scm>
 
    <licenses>
@@ -518,12 +518,38 @@
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-surefire-plugin</artifactId>
-               <version>2.22.1</version>
+               <version>3.0.0-M5</version>
                <configuration>
                   <!-- Sets the VM argument line used when unit tests are run. -->
                   <argLine>${surefireArgLine} ${sureFireOptions11}</argLine>
                   <reuseForks>${sureFireForks11}</reuseForks>
                </configuration>
+               <dependencies>
+                  <dependency>
+                     <groupId>io.micrometer</groupId>
+                     <artifactId>micrometer-core</artifactId>
+                     <version>${micrometer.version}</version>
+                     <scope>runtime</scope>
+                  </dependency>
+                  <dependency>
+                     <groupId>io.dropwizard.metrics</groupId>
+                     <artifactId>metrics-core</artifactId>
+                     <version>${metrics.version}</version>
+                     <scope>runtime</scope>
+                  </dependency>
+                  <dependency>
+                     <groupId>io.dropwizard.metrics</groupId>
+                     <artifactId>metrics-healthchecks</artifactId>
+                     <version>${metrics.version}</version>
+                     <scope>runtime</scope>
+                  </dependency>
+                  <dependency>
+                     <groupId>io.prometheus</groupId>
+                     <artifactId>simpleclient</artifactId>
+                     <version>${simpleclient.version}</version>
+                     <scope>runtime</scope>
+                  </dependency>
+               </dependencies>
             </plugin>
 
             <plugin>
