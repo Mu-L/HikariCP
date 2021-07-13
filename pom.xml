@@ -15,7 +15,7 @@
       <hibernate.version>5.4.16.Final</hibernate.version>
       <javassist.version>3.28.0-GA</javassist.version>
       <jndi.version>0.11.4.1</jndi.version>
-      <maven.release.version>3.0.0-M4</maven.release.version>
+      <maven.release.version>2.5.3</maven.release.version>
       <metrics.version>4.2.2</metrics.version>
       <micrometer.version>1.7.1</micrometer.version>
       <simpleclient.version>0.11.0</simpleclient.version>
@@ -49,6 +49,7 @@
       <connection>scm:git:git@github.com:brettwooldridge/HikariCP.git</connection>
       <developerConnection>scm:git:git@github.com:brettwooldridge/HikariCP.git</developerConnection>
       <url>git@github.com:brettwooldridge/HikariCP.git</url>
+      <tag>HEAD</tag>
    </scm>
 
    <licenses>
@@ -307,6 +308,7 @@
                </execution>
             </executions>
             <configuration>
+               <toolchain>paths</toolchain>
                <executable>java</executable>
                <arguments>
                   <argument>-cp</argument>
