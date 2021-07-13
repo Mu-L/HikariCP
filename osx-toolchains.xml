@@ -7,6 +7,9 @@
          <id>java</id>
       </provides>
       <configuration>
+         <paths>
+            <path>/Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home/bin</path>
+         </paths>
          <jdkHome>/Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home</jdkHome>
       </configuration>
    </toolchain>
