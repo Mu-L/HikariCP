@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF8"?>
 <toolchains>
    <toolchain>
-      <type>jdk</type>
+      <type>paths</type>
       <provides>
          <version>11</version>
-         <id>jdk</id>
+         <id>java</id>
       </provides>
       <configuration>
          <jdkHome>/Library/Java/JavaVirtualMachines/jdk-11.0.11.jdk/Contents/Home</jdkHome>
