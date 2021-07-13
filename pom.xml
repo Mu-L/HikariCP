@@ -555,6 +555,10 @@
                   <additionalOptions>
                      <option>--limit-modules</option>
                      <option>com.zaxxer.hikari</option>
+                     <option>--show-module-contents</option>
+                     <option>api</option>
+                     <option>--show-packages</option>
+                     <option>exported</option>
                   </additionalOptions>
                </configuration>
                <executions>
