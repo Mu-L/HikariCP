@@ -546,17 +546,13 @@
                <artifactId>maven-javadoc-plugin</artifactId>
                <version>3.3.0</version>
                <configuration>
+                  <javadocVersion>1.8</javadocVersion>
                   <show>public</show>
                   <excludePackageNames>
                      com.zaxxer.hikari.hibernate:com.zaxxer.hikari.metrics.*:com.zaxxer.hikari.pool:com.zaxxer.hikari.util
                   </excludePackageNames>
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
-                  <additionalOptions>
-                     <option>--limit-modules=com.zaxxer.hikari</option>
-                     <option>--show-module-contents=api</option>
-                     <option>--show-packages=exported</option>
-                  </additionalOptions>
                </configuration>
                <executions>
                   <execution>
