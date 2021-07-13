@@ -290,7 +290,7 @@
             <configuration>
                <toolchains>
                   <paths>
-                     <id>java11</id>
+                     <id>Java11</id>
                   </paths>
                </toolchains>
             </configuration>
