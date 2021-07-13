@@ -9,9 +9,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link HikariDataSource#isRunning()}.

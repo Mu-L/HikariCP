@@ -25,8 +25,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
+
 import com.zaxxer.hikari.HikariConfig;
-import org.junit.jupiter.api.Test;
 
 /**
  * @author Brett Wooldridge

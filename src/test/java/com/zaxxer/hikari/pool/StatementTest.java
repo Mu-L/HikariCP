@@ -16,26 +16,27 @@
 
 package com.zaxxer.hikari.pool;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static com.zaxxer.hikari.pool.TestElf.newHikariConfig;
+import static com.zaxxer.hikari.pool.TestElf.getPool;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static com.zaxxer.hikari.pool.TestElf.getPool;
-import static com.zaxxer.hikari.pool.TestElf.newHikariConfig;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 public class StatementTest
 {
    private HikariDataSource ds;
 
-   @BeforeEach
+   @Before
    public void setup()
    {
       HikariConfig config = newHikariConfig();
@@ -47,7 +48,7 @@ public class StatementTest
       ds = new HikariDataSource(config);
    }
 
-   @AfterEach
+   @After
    public void teardown()
    {
       ds.close();

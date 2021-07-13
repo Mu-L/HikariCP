@@ -2,64 +2,58 @@ package com.zaxxer.hikari.datasource;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import static com.zaxxer.hikari.pool.TestElf.newHikariConfig;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.fail;
 
 public class TestSealedConfig
 {
-   @Test
-   public void testSealed1()
+   @Test(expected = IllegalStateException.class)
+   public void testSealed1() throws SQLException
    {
       HikariConfig config = newHikariConfig();
       config.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
 
-      assertThrows(IllegalStateException.class, () -> {
-         try (HikariDataSource ds = new HikariDataSource(config)) {
+      try (HikariDataSource ds = new HikariDataSource(config)) {
+         ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
+         fail("Exception should have been thrown");
+      }
+   }
+
+   @Test(expected = IllegalStateException.class)
+   public void testSealed2() throws SQLException
+   {
+      HikariDataSource ds = new HikariDataSource();
+      ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
+
+      try (HikariDataSource closeable = ds) {
+         try (Connection connection = ds.getConnection()) {
             ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
-            Assertions.fail("Exception should have been thrown");
+            fail("Exception should have been thrown");
          }
-      });
+      }
    }
 
-   @Test
-   public void testSealed2()
+   @Test(expected = IllegalStateException.class)
+   public void testSealed3() throws SQLException
    {
       HikariDataSource ds = new HikariDataSource();
       ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
 
-      assertThrows(IllegalStateException.class, () -> {
-         try (HikariDataSource ignored = ds) {
-            try (Connection ignored1 = ds.getConnection()) {
-               ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
-               Assertions.fail("Exception should have been thrown");
-            }
+      try (HikariDataSource closeable = ds) {
+         try (Connection connection = ds.getConnection()) {
+            ds.setAutoCommit(false);
+            fail("Exception should have been thrown");
          }
-      });
+      }
    }
 
    @Test
-   public void testSealed3()
-   {
-      HikariDataSource ds = new HikariDataSource();
-      ds.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");
-
-      assertThrows(IllegalStateException.class, () -> {
-         try (HikariDataSource ignored = ds) {
-            try (Connection ignored1 = ds.getConnection()) {
-               ds.setAutoCommit(false);
-               Assertions.fail("Exception should have been thrown");
-            }
-         }
-      });
-   }
-
-   @Test
-   public void testSealedAccessibleMethods()
+   public void testSealedAccessibleMethods() throws SQLException
    {
       HikariConfig config = newHikariConfig();
       config.setDataSourceClassName("com.zaxxer.hikari.mocks.StubDataSource");

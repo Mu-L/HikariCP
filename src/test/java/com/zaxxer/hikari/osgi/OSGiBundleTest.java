@@ -16,7 +16,6 @@
 package com.zaxxer.hikari.osgi;
 
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.junit.runner.manipulation.Filter;
 import org.junit.runner.manipulation.NoTestsRemainException;
@@ -32,6 +31,8 @@ import javax.inject.Inject;
 import java.io.File;
 
 import static com.zaxxer.hikari.pool.TestElf.isJava11;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.ops4j.pax.exam.CoreOptions.*;
 
 /**
@@ -43,14 +44,14 @@ public class OSGiBundleTest
    @Test
    public void checkInject()
    {
-      Assertions.assertNotNull(context);
+      assertNotNull(context);
    }
 
    @Test
    public void checkBundle()
    {
-      boolean bundleFound = false;
-      boolean bundleActive = false;
+      Boolean bundleFound = false;
+      Boolean bundleActive = false;
 
       Bundle[] bundles = context.getBundles();
       for (Bundle bundle : bundles) {
@@ -64,8 +65,8 @@ public class OSGiBundleTest
          }
       }
 
-      Assertions.assertTrue(bundleFound);
-      Assertions.assertTrue(bundleActive);
+      assertTrue(bundleFound);
+      assertTrue(bundleActive);
    }
 
    @Inject

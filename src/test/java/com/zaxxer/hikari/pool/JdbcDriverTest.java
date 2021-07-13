@@ -15,24 +15,25 @@
  */
 package com.zaxxer.hikari.pool;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import com.zaxxer.hikari.util.DriverDataSource;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
+import static com.zaxxer.hikari.pool.TestElf.newHikariConfig;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static com.zaxxer.hikari.pool.TestElf.newHikariConfig;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.After;
+import org.junit.Test;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import com.zaxxer.hikari.util.DriverDataSource;
 
 public class JdbcDriverTest
 {
    private HikariDataSource ds;
 
-   @AfterEach
+   @After
    public void teardown()
    {
       if (ds != null) {
