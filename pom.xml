@@ -552,6 +552,9 @@
                   </excludePackageNames>
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
+                  <jdkToolchain>
+                     <version>1.8</version>
+                  </jdkToolchain>
                </configuration>
                <!--executions>
                   <execution>
