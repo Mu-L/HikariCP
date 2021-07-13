@@ -553,12 +553,9 @@
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
                   <additionalOptions>
-                     <option>--limit-modules</option>
-                     <option>com.zaxxer.hikari</option>
-                     <option>--show-module-contents</option>
-                     <option>api</option>
-                     <option>--show-packages</option>
-                     <option>exported</option>
+                     <option>--limit-modules=com.zaxxer.hikari</option>
+                     <option>--show-module-contents=api</option>
+                     <option>--show-packages=exported</option>
                   </additionalOptions>
                </configuration>
                <executions>
