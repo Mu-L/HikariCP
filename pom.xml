@@ -554,7 +554,7 @@
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
                </configuration>
-               <executions>
+               <!--executions>
                   <execution>
                      <id>bundle-sources</id>
                      <phase>package</phase>
@@ -562,7 +562,7 @@
                         <goal>jar</goal>
                      </goals>
                   </execution>
-               </executions>
+               </executions -->
             </plugin>
          </plugins>
       </pluginManagement>
