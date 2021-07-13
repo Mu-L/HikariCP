@@ -443,6 +443,7 @@
                <classifier>${artifact.classifier}</classifier>
                <instructions>
                   <Automatic-Module-Name>${automatic.module.name}</Automatic-Module-Name>
+                  <Multi-Release>true</Multi-Release>
                   <Bundle-Name>HikariCP</Bundle-Name>
                   <Export-Package>
                      com.zaxxer.hikari,
@@ -552,11 +553,8 @@
                   </excludePackageNames>
                   <attach>true</attach>
                   <maxmemory>1024m</maxmemory>
-                  <jdkToolchain>
-                     <version>1.8</version>
-                  </jdkToolchain>
                </configuration>
-               <!--executions>
+               <executions>
                   <execution>
                      <id>bundle-sources</id>
                      <phase>package</phase>
@@ -564,7 +562,7 @@
                         <goal>jar</goal>
                      </goals>
                   </execution>
-               </executions -->
+               </executions>
             </plugin>
          </plugins>
       </pluginManagement>
@@ -583,8 +581,8 @@
                -add-exports java.base/sun.net.www.protocol.http=ALL-UNNAMED
                -add-exports java.base/sun.net.www.protocol.https=ALL-UNNAMED
             </sureFireOptions11 -->
-            <automatic.module.name>com.zaxxer.hikari</automatic.module.name>
-            <slf4j.version>1.7.31</slf4j.version>
+            <slf4j.version>2.0.0-alpha1</slf4j.version>
+            <sureFireForks11>true</sureFireForks11>
          </properties>
       </profile>
 
