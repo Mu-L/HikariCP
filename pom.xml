@@ -27,13 +27,13 @@
       <slf4j.version>1.7.31</slf4j.version>
       <commons.csv.version>1.8</commons.csv.version>
       <h2.version>1.4.200</h2.version>
-      <junit.jupiter.version>4.13.1</junit.jupiter.version>
+      <junit.version>4.13.1</junit.version>
       <testcontainers.version>1.15.3</testcontainers.version>
    </properties>
 
    <groupId>com.zaxxer</groupId>
    <artifactId>HikariCP</artifactId>
-   <version>5.0.0-SNAPSHOT</version>
+   <version>5.0.0</version>
    <packaging>bundle</packaging>
 
    <name>HikariCP</name>
@@ -49,7 +49,7 @@
       <connection>scm:git:git@github.com:brettwooldridge/HikariCP.git</connection>
       <developerConnection>scm:git:git@github.com:brettwooldridge/HikariCP.git</developerConnection>
       <url>git@github.com:brettwooldridge/HikariCP.git</url>
-      <tag>HEAD</tag>
+      <tag>HikariCP-5.0.0</tag>
    </scm>
 
    <licenses>
@@ -122,21 +122,9 @@
          </exclusions>
       </dependency>
       <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-api</artifactId>
-         <version>${junit.jupiter.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-params</artifactId>
-         <version>${junit.jupiter.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter-engine</artifactId>
-         <version>${junit.jupiter.version}</version>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>${junit.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>
