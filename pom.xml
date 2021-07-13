@@ -385,7 +385,7 @@
          <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.2</version>
+            <version>0.8.7</version>
             <executions>
                <!-- Prepares the property pointing to the JaCoCo runtime agent which is passed as VM argument when Maven the Surefire plugin is executed. -->
                <execution>
@@ -518,7 +518,7 @@
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-surefire-plugin</artifactId>
-               <version>2.22.1</version>
+               <version>3.0.0-M5</version>
                <configuration>
                   <!-- Sets the VM argument line used when unit tests are run. -->
                   <argLine>${surefireArgLine} ${sureFireOptions11}</argLine>
@@ -603,7 +603,7 @@
                -add-exports java.base/sun.net.www.protocol.https=ALL-UNNAMED
             </sureFireOptions11 -->
             <slf4j.version>2.0.0-alpha1</slf4j.version>
-            <sureFireForks11>true</sureFireForks11>
+            <sureFireForks11>false</sureFireForks11>
          </properties>
          <dependencies>
             <dependency>
